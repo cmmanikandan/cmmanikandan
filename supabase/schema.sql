@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS public.projects (
     category VARCHAR(50) NOT NULL,
     year VARCHAR(20) NOT NULL DEFAULT '2026',
     role VARCHAR(100) NOT NULL DEFAULT 'Full Stack Developer',
-    status VARCHAR(20) NOT NULL DEFAULT 'Completed' CHECK (status IN ('draft', 'published', 'Completed', 'In Development', 'archived')),
+    status VARCHAR(50) NOT NULL DEFAULT 'Completed',
     featured BOOLEAN DEFAULT FALSE,
     thumbnail_url TEXT,
     hero_image_url TEXT,
@@ -43,6 +43,11 @@ CREATE TABLE IF NOT EXISTS public.projects (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
+
+-- ENSURE ALTER SAFETY FOR PRE-EXISTING TABLES IN SUPABASE
+ALTER TABLE public.projects ALTER COLUMN status TYPE VARCHAR(50);
+ALTER TABLE public.projects DROP CONSTRAINT IF EXISTS projects_status_check;
+ALTER TABLE public.projects ADD CONSTRAINT projects_status_check CHECK (status IN ('draft', 'published', 'Completed', 'In Development', 'archived', 'completed', 'in_development'));
 
 -- 3. PROJECT TECHNOLOGIES TABLE
 CREATE TABLE IF NOT EXISTS public.project_technologies (
@@ -111,7 +116,7 @@ CREATE TABLE IF NOT EXISTS public.articles (
     content TEXT NOT NULL,
     cover_image_url TEXT,
     category VARCHAR(50) NOT NULL,
-    status VARCHAR(20) NOT NULL DEFAULT 'published' CHECK (status IN ('draft', 'published', 'archived')),
+    status VARCHAR(50) NOT NULL DEFAULT 'published',
     published_at VARCHAR(50) NOT NULL,
     reading_time VARCHAR(30) NOT NULL,
     seo_title VARCHAR(255),
@@ -119,6 +124,11 @@ CREATE TABLE IF NOT EXISTS public.articles (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
+
+-- ENSURE ALTER SAFETY FOR ARTICLES PRE-EXISTING TABLES IN SUPABASE
+ALTER TABLE public.articles ALTER COLUMN status TYPE VARCHAR(50);
+ALTER TABLE public.articles DROP CONSTRAINT IF EXISTS articles_status_check;
+ALTER TABLE public.articles ADD CONSTRAINT articles_status_check CHECK (status IN ('draft', 'published', 'archived', 'Published', 'Draft'));
 
 -- 9. MESSAGES TABLE (Strict RLS: Public INSERT Only, Admin SELECT/UPDATE/DELETE Only)
 CREATE TABLE IF NOT EXISTS public.messages (
@@ -129,9 +139,13 @@ CREATE TABLE IF NOT EXISTS public.messages (
     message TEXT NOT NULL,
     project_type VARCHAR(100),
     budget_range VARCHAR(100),
-    status VARCHAR(20) NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'read', 'replied', 'archived')),
+    status VARCHAR(50) NOT NULL DEFAULT 'new',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
+
+ALTER TABLE public.messages ALTER COLUMN status TYPE VARCHAR(50);
+ALTER TABLE public.messages DROP CONSTRAINT IF EXISTS messages_status_check;
+ALTER TABLE public.messages ADD CONSTRAINT messages_status_check CHECK (status IN ('new', 'read', 'replied', 'archived', 'New', 'Read', 'Replied'));
 
 -- INDEXES
 CREATE INDEX IF NOT EXISTS idx_projects_slug ON public.projects(slug);
@@ -174,13 +188,13 @@ DROP POLICY IF EXISTS "Admin Full Access Messages" ON public.messages;
 
 -- RE-CREATE PUBLIC READ POLICIES
 CREATE POLICY "Public Read Profiles" ON public.profiles FOR SELECT USING (true);
-CREATE POLICY "Public Read Published Projects" ON public.projects FOR SELECT USING (status IN ('published', 'Completed'));
+CREATE POLICY "Public Read Published Projects" ON public.projects FOR SELECT USING (status IN ('published', 'Completed', 'completed', 'In Development'));
 CREATE POLICY "Public Read Project Tech" ON public.project_technologies FOR SELECT USING (true);
 CREATE POLICY "Public Read Project Images" ON public.project_images FOR SELECT USING (true);
 CREATE POLICY "Public Read Case Studies" ON public.case_studies FOR SELECT USING (true);
 CREATE POLICY "Public Read Case Study Sections" ON public.case_study_sections FOR SELECT USING (true);
 CREATE POLICY "Public Read Experiences" ON public.experiences FOR SELECT USING (true);
-CREATE POLICY "Public Read Published Articles" ON public.articles FOR SELECT USING (status = 'published');
+CREATE POLICY "Public Read Published Articles" ON public.articles FOR SELECT USING (status IN ('published', 'Published'));
 
 -- PUBLIC INSERT POLICY FOR MESSAGES (Public can ONLY insert, cannot SELECT/READ)
 CREATE POLICY "Public Insert Messages" ON public.messages FOR INSERT WITH CHECK (true);
