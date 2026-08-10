@@ -20,7 +20,7 @@ import { SeoService } from '../../core/services/seo.service';
         <!-- 6 Practical Developer Pillars -->
         <div class="pillars-container">
           
-          <article class="pillar-section glass-card">
+          <article class="pillar-section glass-card reveal-on-scroll">
             <div class="pillar-num">01</div>
             <div class="pillar-content">
               <h3>Understanding the Problem</h3>
@@ -33,7 +33,7 @@ import { SeoService } from '../../core/services/seo.service';
             </div>
           </article>
 
-          <article class="pillar-section glass-card">
+          <article class="pillar-section glass-card reveal-on-scroll">
             <div class="pillar-num">02</div>
             <div class="pillar-content">
               <h3>UI / UX Design</h3>
@@ -46,7 +46,7 @@ import { SeoService } from '../../core/services/seo.service';
             </div>
           </article>
 
-          <article class="pillar-section glass-card">
+          <article class="pillar-section glass-card reveal-on-scroll">
             <div class="pillar-num">03</div>
             <div class="pillar-content">
               <h3>Frontend Development</h3>
@@ -59,7 +59,7 @@ import { SeoService } from '../../core/services/seo.service';
             </div>
           </article>
 
-          <article class="pillar-section glass-card">
+          <article class="pillar-section glass-card reveal-on-scroll">
             <div class="pillar-num">04</div>
             <div class="pillar-content">
               <h3>Backend Development</h3>
@@ -72,7 +72,7 @@ import { SeoService } from '../../core/services/seo.service';
             </div>
           </article>
 
-          <article class="pillar-section glass-card">
+          <article class="pillar-section glass-card reveal-on-scroll">
             <div class="pillar-num">05</div>
             <div class="pillar-content">
               <h3>Database Engineering</h3>
@@ -85,7 +85,7 @@ import { SeoService } from '../../core/services/seo.service';
             </div>
           </article>
 
-          <article class="pillar-section glass-card">
+          <article class="pillar-section glass-card reveal-on-scroll">
             <div class="pillar-num">06</div>
             <div class="pillar-content">
               <h3>Testing &amp; Deployment</h3>
@@ -101,7 +101,7 @@ import { SeoService } from '../../core/services/seo.service';
         </div>
 
         <!-- BOTTOM CTA -->
-        <div class="eng-cta glass-card">
+        <div class="eng-cta glass-card reveal-on-scroll">
           <h3>Interested in discussing a project or full-stack role?</h3>
           <a routerLink="/contact" class="btn btn-primary">Get In Touch</a>
         </div>

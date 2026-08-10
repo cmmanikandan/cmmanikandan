@@ -51,8 +51,11 @@ import { SeoService } from '../../core/services/seo.service';
               <label for="projectType">Opportunity Type</label>
               <select id="projectType" formControlName="projectType">
                 <option value="Campus Placement">Campus Placement</option>
-                <option value="Internship">Internship / Student Trainee</option>
-                <option value="Full-Time Opportunity">Full-Time Software Role</option>
+                <option value="Company Recruitment">Company Recruitment</option>
+                <option value="Internship">Internship</option>
+                <option value="Placement Training">Placement Training</option>
+                <option value="Full-Time Entry-Level Role">Full-Time Entry-Level Role</option>
+                <option value="Part-Time Opportunity">Part-Time Opportunity</option>
                 <option value="Project Collaboration">Project Collaboration</option>
                 <option value="Technical Discussion">Technical Discussion</option>
                 <option value="Other">Other Inquiry</option>
@@ -107,7 +110,7 @@ import { SeoService } from '../../core/services/seo.service';
         background: var(--bg-surface);
         border: 1px solid var(--border-medium);
         padding: var(--space-3);
-        border-radius: var(--radius-md);
+        border-radius: var(--radius-sm);
         color: var(--text-primary);
         font-family: var(--font-body);
 
