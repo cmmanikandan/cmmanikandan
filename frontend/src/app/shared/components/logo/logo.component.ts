@@ -9,11 +9,20 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
   imports: [CommonModule, RouterLink],
   template: `
     <a routerLink="/" class="brand-logo" [ngClass]="variant" aria-label="Manikandan Prabhu Homepage">
-      <!-- MONOGRAM MARK -->
-      <span class="logo-mark">&lt;MP/&gt;</span>
+      <!-- BRAND LOGO IMAGE FROM LOGO.PNG -->
+      <img 
+        src="assets/logo.png" 
+        alt="Manikandan Prabhu Logo" 
+        class="logo-img" 
+        (error)="imageFailed = true" 
+        *ngIf="!imageFailed; else monogramFallback" />
+
+      <ng-template #monogramFallback>
+        <span class="logo-mark">&lt;MP/&gt;</span>
+      </ng-template>
 
       <!-- BRAND WORDMARK -->
-      <div class="logo-text-group" *ngIf="variant !== 'monogram'">
+      <div class="logo-text-group" *ngIf="variant === 'full' || variant === 'footer'">
         <span class="brand-name">{{ brand.name }}</span>
         <span *ngIf="variant === 'footer'" class="brand-sub">{{ brand.title }}</span>
       </div>
@@ -23,23 +32,31 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
     .brand-logo {
       display: inline-flex;
       align-items: center;
-      gap: var(--space-2);
+      gap: var(--space-3);
       text-decoration: none;
       transition: opacity 200ms ease, transform 200ms ease;
 
       &:hover {
         opacity: 0.95;
-        .logo-mark {
-          transform: translateY(-1px);
+        .logo-img, .logo-mark {
+          transform: scale(1.03);
         }
       }
+    }
+
+    .logo-img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      transition: transform 200ms ease;
     }
 
     .logo-mark {
       font-family: var(--font-mono);
       font-weight: 700;
       color: var(--accent-cyan);
-      font-size: 1rem;
+      font-size: 1.1rem;
       letter-spacing: -0.05em;
       transition: transform 200ms ease;
     }
@@ -66,12 +83,15 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
 
     /* Variant Styles */
     .brand-logo.compact {
-      .brand-name {
-        font-size: 1.05rem;
+      .logo-img {
+        height: 32px;
       }
     }
 
     .brand-logo.footer {
+      .logo-img {
+        height: 40px;
+      }
       .brand-name {
         font-size: 1.25rem;
       }
@@ -81,4 +101,5 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
 export class LogoComponent {
   @Input() variant: 'full' | 'compact' | 'monogram' | 'footer' = 'full';
   brand = BRAND_CONFIG;
+  imageFailed = false;
 }
