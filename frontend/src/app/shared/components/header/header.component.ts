@@ -8,6 +8,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
     <header [class.scrolled]="isScrolled()" class="header">
+      <!-- Thin Top Scroll Progress Bar -->
+      <div class="top-scroll-progress" [style.width.%]="scrollProgress()"></div>
+
       <div class="container header-content">
         <!-- Logo / Brand Wordmark -->
         <a routerLink="/" class="logo" aria-label="Manikandan Prabhu Homepage">
@@ -71,17 +74,28 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       z-index: 1000;
       padding: var(--space-4) 0;
       transition: all var(--transition-normal);
-      background: rgba(11, 13, 16, 0.6);
+      background: rgba(11, 13, 16, 0.65);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
       &.scrolled {
         padding: var(--space-3) 0;
-        background: rgba(11, 13, 16, 0.9);
+        background: rgba(11, 13, 16, 0.92);
         border-bottom: 1px solid var(--border-subtle);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
       }
+    }
+
+    .top-scroll-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
+      box-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+      transition: width 100ms ease-out;
+      z-index: 1001;
     }
 
     .header-content {
@@ -247,10 +261,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class HeaderComponent {
   isScrolled = signal<boolean>(false);
   mobileMenuOpen = signal<boolean>(false);
+  scrollProgress = signal<number>(0);
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled.set(window.scrollY > 20);
+
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+    this.scrollProgress.set(scrolled);
   }
 
   toggleMobileMenu() {
