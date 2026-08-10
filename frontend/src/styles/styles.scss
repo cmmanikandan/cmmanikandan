@@ -91,11 +91,15 @@ a {
   font-weight: 600;
   font-size: 0.95rem;
   border-radius: var(--radius-md);
-  border: 1fr solid transparent;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
   white-space: nowrap;
   user-select: none;
+
+  svg {
+    transition: transform 200ms ease;
+  }
 
   &.btn-primary {
     background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
@@ -106,6 +110,15 @@ a {
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+      filter: brightness(1.05);
+
+      svg {
+        transform: translateX(3px);
+      }
+    }
+
+    &:active {
+      transform: translateY(1px);
     }
   }
 
@@ -116,9 +129,17 @@ a {
 
     &:hover {
       background: var(--bg-elevated);
-      border-color: var(--border-active);
+      border-color: var(--accent-cyan);
       color: var(--accent-cyan);
       transform: translateY(-2px);
+
+      svg {
+        transform: translateX(3px);
+      }
+    }
+
+    &:active {
+      transform: translateY(1px);
     }
   }
 
@@ -130,6 +151,11 @@ a {
     &:hover {
       border-color: var(--accent-cyan);
       color: var(--accent-cyan);
+      transform: translateY(-1px);
+
+      svg {
+        transform: translateX(3px);
+      }
     }
   }
 }
@@ -168,11 +194,12 @@ a {
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  transition: all var(--transition-normal);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 250ms ease, box-shadow 250ms ease;
 
   &:hover {
-    border-color: var(--border-medium);
-    box-shadow: var(--shadow-md);
+    border-color: rgba(0, 229, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 229, 255, 0.08);
+    transform: translateY(-3px);
   }
 }
 

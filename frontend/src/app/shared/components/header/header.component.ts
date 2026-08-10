@@ -50,14 +50,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         <div class="drawer-content">
           <nav aria-label="Mobile Navigation">
             <a routerLink="/" (click)="closeMobileMenu()" class="drawer-link">Home</a>
-            <a routerLink="/work" (click)="closeMobileMenu()" class="drawer-link">Work / Case Studies</a>
+            <a routerLink="/work" (click)="closeMobileMenu()" class="drawer-link">Work / Projects</a>
             <a routerLink="/engineering" (click)="closeMobileMenu()" class="drawer-link">Engineering Philosophy</a>
             <a routerLink="/about" (click)="closeMobileMenu()" class="drawer-link">About Me</a>
-            <a routerLink="/experience" (click)="closeMobileMenu()" class="drawer-link">Career Experience</a>
-            <a routerLink="/writing" (click)="closeMobileMenu()" class="drawer-link">Writing & Articles</a>
+            <a routerLink="/experience" (click)="closeMobileMenu()" class="drawer-link">Experience</a>
+            <a routerLink="/writing" (click)="closeMobileMenu()" class="drawer-link">Writing</a>
             <a routerLink="/resume" (click)="closeMobileMenu()" class="drawer-link">Resume</a>
-            <a routerLink="/uses" (click)="closeMobileMenu()" class="drawer-link">Uses / Setup</a>
-            <a routerLink="/now" (click)="closeMobileMenu()" class="drawer-link">Now</a>
             <a routerLink="/contact" (click)="closeMobileMenu()" class="drawer-link btn btn-primary mt-4">Let's Work Together</a>
           </nav>
         </div>
@@ -73,15 +71,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       z-index: 1000;
       padding: var(--space-4) 0;
       transition: all var(--transition-normal);
-      background: transparent;
+      background: rgba(11, 13, 16, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
       &.scrolled {
         padding: var(--space-3) 0;
-        background: var(--glass-bg);
-        backdrop-filter: var(--glass-backdrop);
-        -webkit-backdrop-filter: var(--glass-backdrop);
-        border-bottom: 1px solid var(--glass-border);
-        box-shadow: var(--shadow-sm);
+        background: rgba(11, 13, 16, 0.9);
+        border-bottom: 1px solid var(--border-subtle);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
       }
     }
 
@@ -123,22 +122,29 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       font-weight: 500;
       color: var(--text-secondary);
       text-decoration: none;
-      transition: color var(--transition-fast);
+      transition: color 200ms ease;
       position: relative;
+      padding: 4px 0;
 
-      &:hover, &.active {
+      &:hover {
         color: var(--text-primary);
       }
 
-      &.active::after {
-        content: '';
-        position: absolute;
-        bottom: -6px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--accent-cyan);
-        border-radius: var(--radius-full);
+      &.active {
+        color: var(--accent-cyan);
+        font-weight: 600;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: var(--accent-cyan);
+          border-radius: var(--radius-full);
+          box-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+        }
       }
     }
 
