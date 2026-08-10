@@ -1,22 +1,20 @@
 import { Component, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive, LogoComponent],
   template: `
     <header [class.scrolled]="isScrolled()" class="header">
       <!-- Thin Top Scroll Progress Bar -->
       <div class="top-scroll-progress" [style.width.%]="scrollProgress()"></div>
 
       <div class="container header-content">
-        <!-- Logo / Brand Wordmark -->
-        <a routerLink="/" class="logo" aria-label="Manikandan Prabhu Homepage">
-          <span class="logo-mark">&lt;MP/&gt;</span>
-          <span class="logo-text">Manikandan Prabhu</span>
-        </a>
+        <!-- Reusable Brand Logo Component -->
+        <app-logo variant="compact"></app-logo>
 
         <!-- Desktop Navigation Links -->
         <nav class="desktop-nav" aria-label="Main Navigation">
@@ -102,23 +100,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--text-primary);
-      text-decoration: none;
-
-      .logo-mark {
-        font-family: var(--font-mono);
-        color: var(--accent-cyan);
-        font-size: 0.95rem;
-      }
     }
 
     .desktop-nav {

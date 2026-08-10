@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, LogoComponent],
   template: `
     <footer class="footer">
       <div class="container footer-grid">
         <!-- Brand & Positioning -->
         <div class="footer-brand">
-          <a routerLink="/" class="logo">
-            <span class="logo-mark">&lt;MP/&gt;</span>
-            <span class="logo-text">Manikandan Prabhu</span>
-          </a>
+          <app-logo variant="footer"></app-logo>
+          
           <p class="positioning">
             Full Stack Developer focused on Java, web development, databases, and practical digital products.
           </p>
@@ -83,22 +82,6 @@ import { RouterLink } from '@angular/router';
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: var(--space-2);
-        font-family: var(--font-heading);
-        font-weight: 700;
-        font-size: 1.25rem;
-        color: var(--text-primary);
-        text-decoration: none;
-
-        .logo-mark {
-          font-family: var(--font-mono);
-          color: var(--accent-cyan);
-        }
-      }
 
       .positioning {
         max-width: 380px;
