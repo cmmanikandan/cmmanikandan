@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: portfolio-backend
+  
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:portfoliodb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: ${SPRING_JPA_DIALECT:org.hibernate.dialect.H2Dialect}
+        format_sql: true
+
+app:
+  jwt:
+    secret: 9a2f8c4e7b1a3d6e8f0c2b4a6d8e0f2a4c6b8d0e2f4a6c8b0d2e4f6a8b0c2d4e
+  cors:
+    allowed-origins: "*"
