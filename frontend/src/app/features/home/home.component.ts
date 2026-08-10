@@ -23,12 +23,12 @@ import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader
               <span class="badge badge-cyan">3RD-YEAR INFORMATION TECHNOLOGY STUDENT</span>
               <span class="status-indicator">
                 <span class="pulse-dot"></span>
-                Open to Internships &amp; Placement Opportunities
+                Open to Internships &amp; Campus Placements
               </span>
             </div>
 
             <h1 class="hero-title">
-              Building practical software for the <span class="text-gradient">real world.</span>
+              Building practical web applications with <span class="text-gradient">Java, Angular &amp; PostgreSQL.</span>
             </h1>
 
             <p class="hero-description">
@@ -40,14 +40,14 @@ import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader
             </p>
 
             <div class="hero-cta-group">
-              <a routerLink="/work" class="btn btn-primary">
-                View My Work
+              <a routerLink="/resume" class="btn btn-primary">
+                View Resume
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </a>
-              <a routerLink="/resume" class="btn btn-secondary">
-                View Resume
+              <a routerLink="/work" class="btn btn-secondary">
+                View Projects
               </a>
             </div>
           </div>
@@ -132,7 +132,7 @@ import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader
       </section>
 
       <!-- 04 — QUICK STATS -->
-      <section class="quick-stats-section container mt-8">
+      <section class="quick-stats-section container mt-12">
         <div class="stats-grid">
           <div class="stat-card glass-card">
             <span class="stat-number">03</span>
@@ -476,9 +476,10 @@ import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader
   styles: [`
     .home-page { padding-top: 140px; }
 
-    /* 01 HERO */
+    /* 01 HERO SPACING */
     .hero-section {
-      margin-bottom: var(--space-12);
+      margin-bottom: var(--space-16);
+      padding-top: var(--space-6);
     }
 
     .hero-grid {
@@ -519,6 +520,7 @@ import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader
     .hero-title {
       font-size: clamp(2.2rem, 4.5vw, 3.8rem);
       margin-bottom: var(--space-4);
+      max-width: 720px;
 
       .text-gradient {
         background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
@@ -529,6 +531,7 @@ import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader
 
     .hero-description {
       font-size: 1.2rem;
+      max-width: 680px;
       margin-bottom: var(--space-3);
     }
 
@@ -536,6 +539,7 @@ import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader
       font-size: 0.98rem;
       color: var(--text-tertiary);
       margin-bottom: var(--space-6);
+      max-width: 680px;
     }
 
     .hero-cta-group {

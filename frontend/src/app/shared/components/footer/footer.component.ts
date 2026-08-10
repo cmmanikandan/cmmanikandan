@@ -16,7 +16,7 @@ import { RouterLink } from '@angular/router';
             <span class="logo-text">Manikandan Prabhu</span>
           </a>
           <p class="positioning">
-            Full Stack Developer focused on Java, web development, databases, and digital products.
+            Full Stack Developer focused on Java, web development, databases, and practical digital products.
           </p>
           <div class="status-indicator">
             <span class="pulse-dot"></span>
@@ -46,7 +46,7 @@ import { RouterLink } from '@angular/router';
 
           <div class="nav-column">
             <h6>Connect</h6>
-            <a href="https://github.com/Manikandan-Prabhu" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/cmmanikandan" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://linkedin.com/in/manikandanprabhu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="mailto:manikandanprabhu.dev@gmail.com">Email Direct</a>
           </div>

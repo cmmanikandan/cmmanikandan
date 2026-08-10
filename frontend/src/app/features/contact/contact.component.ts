@@ -31,18 +31,18 @@ import { SeoService } from '../../core/services/seo.service';
         </div>
 
         <!-- CONTACT FORM -->
-        <form *ngIf="!submittedSuccess()" [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form glass-card">
+        <form *ngIf="!submittedSuccess()" [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form glass-card" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name *</label>
               <input id="name" type="text" formControlName="name" placeholder="John Doe" required>
-              <span *ngIf="isFieldInvalid('name')" class="field-error">Please enter your name.</span>
+              <span *ngIf="isFieldInvalid('name')" class="field-error fade-in">Please enter your name.</span>
             </div>
 
             <div class="form-group">
               <label for="email">Email Address *</label>
               <input id="email" type="email" formControlName="email" placeholder="john&#64;company.com" required>
-              <span *ngIf="isFieldInvalid('email')" class="field-error">Please enter a valid email address.</span>
+              <span *ngIf="isFieldInvalid('email')" class="field-error fade-in">Please enter a valid email address.</span>
             </div>
           </div>
 
@@ -62,14 +62,14 @@ import { SeoService } from '../../core/services/seo.service';
             <div class="form-group">
               <label for="subject">Subject *</label>
               <input id="subject" type="text" formControlName="subject" placeholder="Recruitment / Project Inquiry" required>
-              <span *ngIf="isFieldInvalid('subject')" class="field-error">Subject is required.</span>
+              <span *ngIf="isFieldInvalid('subject')" class="field-error fade-in">Subject is required.</span>
             </div>
           </div>
 
           <div class="form-group mt-4">
             <label for="message">Message *</label>
             <textarea id="message" formControlName="message" rows="5" placeholder="Feel free to share details regarding the opportunity..." required></textarea>
-            <span *ngIf="isFieldInvalid('message')" class="field-error">Message cannot be empty.</span>
+            <span *ngIf="isFieldInvalid('message')" class="field-error fade-in">Please provide a little more detail (at least 10 characters).</span>
           </div>
 
           <button type="submit" class="btn btn-primary w-full mt-6" [disabled]="loading()">
@@ -81,7 +81,7 @@ import { SeoService } from '../../core/services/seo.service';
     </main>
   `,
   styles: [`
-    .contact-page { padding: 140px 0 var(--space-16); }
+    .contact-page { padding: 120px 0 var(--space-16); }
     .page-header {
       margin-bottom: var(--space-8);
       h1 { margin: var(--space-2) 0 var(--space-3); }
@@ -154,6 +154,7 @@ export class ContactComponent implements OnInit {
 
   contactForm!: FormGroup;
   loading = signal<boolean>(false);
+  submittedAttempt = signal<boolean>(false);
   submittedSuccess = signal<boolean>(false);
   responseMessage = signal<string>('');
 
@@ -164,7 +165,7 @@ export class ContactComponent implements OnInit {
     );
 
     this.contactForm = this.fb.group({
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       projectType: ['Campus Placement'],
       subject: ['', [Validators.required]],
@@ -174,10 +175,13 @@ export class ContactComponent implements OnInit {
 
   isFieldInvalid(fieldName: string): boolean {
     const field = this.contactForm.get(fieldName);
-    return !!(field && field.invalid && (field.dirty || field.touched));
+    if (!field) return false;
+    return field.invalid && (field.dirty || field.touched || this.submittedAttempt());
   }
 
   onSubmit() {
+    this.submittedAttempt.set(true);
+
     if (this.contactForm.invalid) {
       Object.keys(this.contactForm.controls).forEach(key => {
         this.contactForm.get(key)?.markAsTouched();
@@ -205,6 +209,7 @@ export class ContactComponent implements OnInit {
     this.contactForm.reset({
       projectType: 'Campus Placement'
     });
+    this.submittedAttempt.set(false);
     this.submittedSuccess.set(false);
   }
 }
