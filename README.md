@@ -1,16 +1,19 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,11,21&height=220&section=header&text=MANIKANDAN%20PRABHU%20C&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=B.Tech%20Information%20Technology%20Student%20|%20Aspiring%20Software%20Developer&descAlignY=58&descAlign=50" width="100%" alt="Header Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:192841,50:1e3a8a,100:0ea5e9&height=220&section=header&text=MANIKANDAN%20PRABHU%20C&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=B.Tech%20Information%20Technology%20Student%20|%20Aspiring%20Software%20Developer&descAlignY=58&descAlign=50" width="100%" alt="Header Banner" />
 
   <a href="https://github.com/cmmanikandan">
     <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=620&lines=Aspiring+Software+Developer;Java+Full+Stack+Development;Passionate+About+Web+Development;Continuous+Learner+%26+Problem+Solver" alt="Typing SVG" />
   </a>
   <br/><br/>
 
+  <a href="https://www.cmmanikandan.in" target="_blank">
+    <img src="https://img.shields.io/badge/Website-cmmanikandan.in-0284C7?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Personal Website Badge" />
+  </a>
   <a href="mailto:manikandanprabhu37@gmail.com">
     <img src="https://img.shields.io/badge/Email-manikandanprabhu37%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Badge" />
   </a>
   <a href="https://github.com/cmmanikandan">
-    <img src="https://img.shields.io/badge/GitHub-cmmanikandan-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge" />
+    <img src="https://img.shields.io/badge/GitHub-cmmanikandan-192841?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge" />
   </a>
 </div>
 
@@ -21,6 +24,7 @@
 I am a B.Tech Information Technology student interested in Java Full Stack Development and Web Development. I am focused on continuously improving my technical skills, building practical applications, and preparing for software development opportunities.
 
 - 🎓 **Education:** 3rd Year B.Tech in Information Technology at **M. Kumarasamy College of Engineering, Karur** (2024 – 2028)
+- 🌐 **Personal Website:** [www.cmmanikandan.in](https://www.cmmanikandan.in)
 - 🎯 **Career Focus:** Java Full Stack Development & Web Development
 - 🧩 **Soft Skills:** Problem Solving, Teamwork, Communication, Time Management
 - ♟️ **Interests & Activities:** Web Development, Playing Chess
@@ -67,7 +71,7 @@ I am a B.Tech Information Technology student interested in Java Full Stack Devel
 #### ⚙️ Tools & Technologies
 <p>
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  <img src="https://img.shields.io/badge/GitHub-192841?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
 </p>
 
@@ -121,17 +125,17 @@ I am a B.Tech Information Technology student interested in Java Full Stack Devel
   <table border="0">
     <tr>
       <td valign="top" width="50%">
-        <img src="https://github-readme-stats.vercel.app/api?username=cmmanikandan&show_icons=true&theme=radical&hide_border=true&title_color=38bdf8&icon_color=38bdf8&text_color=94a3b8&bg_color=0f172a" width="100%" alt="cmmanikandan GitHub Stats" />
+        <img src="https://github-readme-stats.vercel.app/api?username=cmmanikandan&show_icons=true&hide_border=false&title_color=38bdf8&icon_color=38bdf8&text_color=e2e8f0&bg_color=192841&border_color=253d66" width="100%" alt="cmmanikandan GitHub Stats" />
       </td>
       <td valign="top" width="50%">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cmmanikandan&layout=compact&theme=radical&hide_border=true&title_color=38bdf8&text_color=94a3b8&bg_color=0f172a" width="100%" alt="Top Languages" />
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cmmanikandan&layout=compact&hide_border=false&title_color=38bdf8&text_color=e2e8f0&bg_color=192841&border_color=253d66" width="100%" alt="Top Languages" />
       </td>
     </tr>
   </table>
 
   <br/>
 
-  <img src="https://streak-stats.demolab.com/?user=cmmanikandan&theme=radical&hide_border=true&stroke=38bdf8&background=0f172a&ring=38bdf8&fire=38bdf8&currStreakLabel=38bdf8" width="85%" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com/?user=cmmanikandan&hide_border=false&stroke=38bdf8&background=192841&border=253d66&ring=38bdf8&fire=38bdf8&currStreakLabel=38bdf8&sideNums=e2e8f0&sideLabels=94a3b8&dates=94a3b8" width="85%" alt="GitHub Streak" />
 </div>
 
 ---
@@ -141,17 +145,21 @@ I am a B.Tech Information Technology student interested in Java Full Stack Devel
 <div align="center">
   <p>Feel free to reach out for collaboration, projects, or placement opportunities!</p>
 
+  <a href="https://www.cmmanikandan.in" target="_blank">
+    <img src="https://img.shields.io/badge/Website-cmmanikandan.in-0284C7?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Personal Website" />
+  </a>
+  &nbsp;&nbsp;
   <a href="mailto:manikandanprabhu37@gmail.com">
     <img src="https://img.shields.io/badge/Email-manikandanprabhu37%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
   </a>
   &nbsp;&nbsp;
   <a href="https://github.com/cmmanikandan">
-    <img src="https://img.shields.io/badge/GitHub-cmmanikandan-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+    <img src="https://img.shields.io/badge/GitHub-cmmanikandan-192841?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,11,21&height=100&section=footer" width="100%" alt="Footer Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:192841,50:1e3a8a,100:0ea5e9&height=100&section=footer" width="100%" alt="Footer Banner" />
 </div>
